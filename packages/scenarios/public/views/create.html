@@ -1,0 +1,49 @@
+<section data-ng-controller="ScenariosController">
+    <form class="form-horizontal col-md-6" role="form" data-ng-submit="create()">
+        <div class="form-group">
+            <label mean-token="'create-name'" class="col-md-3 control-label">Name</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" data-ng-model="name" id="name" placeholder="Name" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label mean-token="'create-content'" for="description" class="col-md-3 control-label">Description</label>
+            <div class="col-md-9">
+                <textarea data-ng-model="description" id="description" cols="30" rows="10" placeholder="Description" class="form-control" required></textarea>
+            </div>
+        </div>
+         <div class="form-group">
+            <label mean-token="'create-classification'" class="col-md-3 control-label">Classification</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" data-ng-model="classification" id="classification" placeholder="Classification" required>
+            </div>
+        </div>
+         <div class="form-group">
+            <label mean-token="'create-scenarioStatus'" class="col-md-3 control-label">Status</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" data-ng-model="scenarioStatus" id="scenarioStatus" placeholder="Status" required>
+            </div>
+        </div>
+         <div class="form-group">
+            <label mean-token="'create-analysisStatus'" class="col-md-3 control-label">Analysis Status</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" data-ng-model="analysisStatus" id="analysisStatus" placeholder="Analysis Status" required>
+            </div>
+        </div>
+         <div class="form-group">
+            <label mean-token="'create-name'" class="col-md-3 control-label">Due Date</label>
+            <div class="col-md-9">
+                <input type="date" class="form-control" data-ng-model="due" id="due" placeholder="Due Date" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <button type="submit" class="btn btn-success">Create</button>
+                 <a class="btn btn-danger" title="Edit" href="/#!/scenarios">
+                        Cancel
+                    </a>
+            </div>
+
+        </div>
+    </form>
+</section>

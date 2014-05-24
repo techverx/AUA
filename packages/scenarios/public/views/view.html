@@ -1,0 +1,14 @@
+<section data-ng-controller="ScenariosController" data-ng-init="findOne()">
+    <span>{{scenario.created | date:'medium'}}</span> /
+    <span>{{scenario.user.name}}</span>
+    <h2>{{scenario.name}}</h2>
+    <div data-ng-if="hasAuthorization(scenario)">
+        <a class="btn" href="/#!/scenarios/{{scenario._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn" data-ng-click="remove(scenario);">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+    </div>
+    <div>{{scenario.description}}</div>
+</section>

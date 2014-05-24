@@ -1,0 +1,51 @@
+<section data-ng-controller="ScenariosController" data-ng-init="find()">
+      <p data-ng-show="!scenarios || scenarios.length"><strong>Page:</strong> {{tableParams.page()}}</p>
+        <p data-ng-show="!scenarios || scenarios.length"><strong>Count per page:</strong> {{tableParams.count()}}</p>
+       <div data-ng-show="!scenarios || scenarios.length" class="table-responsive">
+        <table data-ng-table="tableParams" class="table table-hover table-striped table-bordered"> 
+        <tr data-ng-repeat="scenario in scenarios">
+            <td data-title="'Name'" sortable="'name'">
+               <a data-ng-href="#!/scenarios/{{scenario._id}}">{{scenario.name}}</a>
+            </td>
+
+            <td data-title="'Description'" sortable="'description'">
+                {{scenario.description}}
+            </td>
+               <td data-title="'Classification'" sortable="'classification'">
+                {{scenario.classification}}
+            </td>
+
+            <td data-title="'Status'" sortable="'scenarioStatus'">
+                {{scenario.scenarioStatus}}
+            </td>
+               <td data-title="'Analysis Status'" sortable="'analysisStatus'">
+                {{scenario.analysisStatus}}
+            </td>
+
+            <td data-title="'Due Date'" sortable="'due'">
+                {{scenario.due}}
+            </td>
+
+            <td>
+                <span data-ng-if="hasAuthorization(scenario)">
+                    <a class="btn" title="Edit" href="/#!/scenarios/{{scenario._id}}/edit">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn" title="Delete" data-ng-click="remove(scenario);">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </span>
+            </td>
+        </tr>
+        
+    </table> 
+     <a class="btn btn-primary" title="Edit" href="/#!/scenarios/create">
+                        Create New Scenerio
+                    </a>
+    </div>
+
+    <h1 data-ng-hide="!scenarios || scenarios.length">No scenarios yet. <br> Why don't you <a href="/#!/scenarios/create">Create One</a>?</h1>
+</section>
+<script type="text/javascript">
+    console.log(JSON.stringify($scope.scenarios));
+</script>

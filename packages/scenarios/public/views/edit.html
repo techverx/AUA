@@ -1,3 +1,4 @@
+<h3>Edit Scenerio</h3>
 <section data-ng-controller="ScenariosController" data-ng-init="findOne()">
     <form class="form-horizontal col-md-6" role="form" data-ng-submit="update()">
         <div class="form-group">
@@ -27,13 +28,29 @@
          <div class="form-group">
             <label mean-token="'edit-analysisStatus'" class="col-md-3 control-label">Analysis Status</label>
             <div class="col-md-9">
-                <input type="text" class="form-control" data-ng-model="scenario.analysisStatus" id="analysisStatus" placeholder="Analysis Status" required>
+                   <select class="form-control" data-ng-model="scenario.analysisStatus" id="analysisStatus" required>
+                    <option>
+                        Select Staus
+                    </option>
+                    <option value="Started">
+                       Started
+                    </option>
+                    <option value="Not Started">
+                       Not Started
+                    </option>
+                    <option value="Under Process">
+                       Under Process
+                    </option>
+                     <option value="Completed">
+                       Completed
+                    </option>
+                  </select>
             </div>
         </div>
        <div class="form-group">
             <label mean-token="'edit-due'" class="col-md-3 control-label">Due Date</label>
             <div class="col-md-9">
-                <datepicker data-ng-model="scenario.due" id="due" placeholder="Due Date" required></datepicker>
+                <datepicker min-date="minDate" show-weeks="true" class="well well-sm" data-ng-model="scenario.due" id="due" required></datepicker>
             </div>
         </div>
         <div class="form-group">

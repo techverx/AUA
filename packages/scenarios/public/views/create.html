@@ -30,10 +30,11 @@
                 <input type="text" class="form-control" data-ng-model="analysisStatus" id="analysisStatus" placeholder="Analysis Status" required>
             </div>
         </div>
-         <div class="form-group">
+        <div class="form-group">
             <label mean-token="'create-name'" class="col-md-3 control-label">Due Date</label>
             <div class="col-md-9">
-                <input type="date" class="form-control" data-ng-model="due" id="due" placeholder="Due Date" required>
+                <datepicker data-ng-model="due" id="due" placeholder="Due Date" required></datepicker>
+              <!--   <input type="date" class="form-control" data-ng-model="due" id="due" placeholder="Due Date" required> -->
             </div>
         </div>
         <div class="form-group">

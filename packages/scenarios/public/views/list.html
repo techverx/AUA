@@ -1,6 +1,4 @@
 <section data-ng-controller="ScenariosController" data-ng-init="find()">
-      <p data-ng-show="!scenarios || scenarios.length"><strong>Page:</strong> {{tableParams.page()}}</p>
-        <p data-ng-show="!scenarios || scenarios.length"><strong>Count per page:</strong> {{tableParams.count()}}</p>
        <div data-ng-show="!scenarios || scenarios.length" class="table-responsive">
         <table data-ng-table="tableParams" class="table table-hover table-striped table-bordered"> 
         <tr data-ng-repeat="scenario in scenarios">
@@ -21,14 +19,14 @@
                <td data-title="'Analysis Status'" sortable="'analysisStatus'">
                 {{scenario.analysisStatus}}
             </td>
-
-            <td data-title="'Due Date'" sortable="'due'">
-                {{scenario.due}}
+  <td data-title="'Due Date'" sortable="'due'">
+                {{scenario.due | date: 'MMM-dd-yyyy'}}
             </td>
 
             <td>
-            
-                <span>
+
+            <!-- if we want to add the user authorization uncomment -->
+                <!-- <span data-ng-if="hasAuthorization(scenario)"> -->
                     <a class="btn" title="Edit" href="/#!/scenarios/{{scenario._id}}/edit">
                         <i class="glyphicon glyphicon-edit"></i>
                     </a>

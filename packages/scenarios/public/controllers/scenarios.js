@@ -60,18 +60,8 @@ angular.module('mean').controller('ScenariosController', ['$scope', '$stateParam
         };
 
         $scope.find = function() {
-            Scenarios.query(function(scenarios) {
-               
- $scope.tableParams = new ngTableParams({
-        page: 1,            // show first page
-        count: 10,          // count per page
-        sorting: {
-            name: 'asc'     // initial sorting
-        }
-    }, {
-        total: scenarios.length, // length of data
-    });     
-  $scope.scenarios = scenarios;
+            Scenarios.query(function(scenarios) {  
+              $scope.scenarios = scenarios;
             });
         };
 

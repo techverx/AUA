@@ -1,4 +1,9 @@
+<h1>All Scenerios</h1>
 <section data-ng-controller="ScenariosController" data-ng-init="find()">
+
+<!--  <button class="btn btn-primary pull-right">Reload New Data</button>
+      <p data-ng-show="!scenarios || scenarios.length"><strong>Page:</strong> {{tableParams.page()}}</p>
+        <p data-ng-show="!scenarios || scenarios.length"><strong>Count per page:</strong> {{tableParams.count()}}</p> -->
        <div data-ng-show="!scenarios || scenarios.length" class="table-responsive">
         <table data-ng-table="tableParams" class="table table-hover table-striped table-bordered"> 
         <tr data-ng-repeat="scenario in scenarios">
@@ -27,7 +32,9 @@
 
             <!-- if we want to add the user authorization uncomment -->
                 <!-- <span data-ng-if="hasAuthorization(scenario)"> -->
-                    <a class="btn" title="Edit" href="/#!/scenarios/{{scenario._id}}/edit">
+
+                <span>
+                 <a class="btn" title="Edit" href="/#!/scenarios/{{scenario._id}}/edit">
                         <i class="glyphicon glyphicon-edit"></i>
                     </a>
                     <a class="btn" title="Delete" data-ng-click="remove(scenario);">
@@ -45,6 +52,4 @@
 
     <h1 data-ng-hide="!scenarios || scenarios.length">No scenarios yet. <br> Why don't you <a href="/#!/scenarios/create">Create One</a>?</h1>
 </section>
-<script type="text/javascript">
-    console.log(JSON.stringify($scope.scenarios));
-</script>
+

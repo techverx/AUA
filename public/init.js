@@ -21,4 +21,39 @@ var modules = ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'mean.sys
 modules = modules.concat(packageModules);
 
 // Combined modules
-angular.module('mean', modules);
+var mean = angular.module('mean', modules);
+
+mean.factory('Utils', function() {
+
+	return {
+
+		doSort: function(modelArray, params) {
+
+			modelArray.sort(function(a, b) {
+
+                var key = Object.keys(params.$params.sorting)[0];
+                var order = params.$params.sorting[key];
+
+                if (order === 'asc') {
+                    if (a[key] < b[key]) {
+                        return -1;
+                    }
+                    else if (a[key] > b[key]) {
+                        return 1;
+                    }
+                    return 0;
+                }
+                else {
+                    if (a[key] > b[key]) {
+                        return -1;
+                    }
+                    else if (a[key] < b[key]) {
+                        return 1;
+                    }
+                    return 0;   
+                }
+            });
+		}
+	};
+});
+

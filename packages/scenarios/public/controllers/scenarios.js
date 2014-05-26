@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean').controller('ScenariosController', ['$scope', '$stateParams', '$location', 'Global', 'Scenarios','ngTableParams',
-    function($scope, $stateParams, $location, Global, Scenarios, ngTableParams) {
+angular.module('mean').controller('ScenariosController', ['$scope', '$stateParams', '$location', 'Global', 'Scenarios', 'ngTableParams', '$filter', 'Utils',
+    function($scope, $stateParams, $location, Global, Scenarios, ngTableParams, $filter, Utils) {
         $scope.global = Global;
 
         $scope.hasAuthorization = function(scenario) {
@@ -60,8 +60,24 @@ angular.module('mean').controller('ScenariosController', ['$scope', '$stateParam
         };
 
         $scope.find = function() {
+            
             Scenarios.query(function(scenarios) {  
-              $scope.scenarios = scenarios;
+
+                $scope.scenarios = scenarios;
+
+                $scope.tableParams = new ngTableParams({
+                    page: 1,            // show first page
+                    count: 10,          // count per page
+                    sorting: {
+                        name: 'asc'     // initial sorting
+                    }
+                }, 
+                {
+                    total: $scope.scenarios.length, // length of data
+                    getData: function($defer, params) {
+                        Utils.doSort($scope.scenarios, params);
+                    }
+                }); 
             });
         };
 

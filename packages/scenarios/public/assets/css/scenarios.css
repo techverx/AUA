@@ -4,3 +4,4 @@ h1 {
 ul.scenarios li:not(:last-child) {
 	border-bottom: 1px solid #ccc
 }
+

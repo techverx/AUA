@@ -40,3 +40,13 @@ footer {
 footer p {
     padding:5px 0 12px 10px
 }
+td {
+    text-align: center !important;
+}
+tfoot
+{
+    display: none;
+}
+.margin-bottom10{
+    margin-bottom: 10px;
+}

@@ -4,7 +4,7 @@
  <!-- <button class="btn btn-primary pull-right">Reload New Data</button> -->
       <!-- <p data-ng-show="!scenarios || scenarios.length"><strong>Page:</strong> {{tableParams.page()}}</p> -->
         <div data-ng-show="!scenarios || scenarios.length"><strong>Total Scenerios:</strong> {{tableParams.total()}}</div>
-       <div data-ng-show="!scenarios || scenarios.length" class="table-responsive">
+       <div data-ng-show="!scenarios || scenarios.length" class="table-responsive margin-bottom10">
         <table data-ng-table="tableParams" class="table table-hover table-striped table-bordered"> 
         <tr data-ng-repeat="scenario in scenarios">
             <td data-title="'Name'" sortable="'name'">
@@ -45,7 +45,7 @@
         </tr>
         
     </table> 
-     <a class="btn btn-primary" title="Edit" href="/#!/scenarios/create">
+     <a class="btn btn-primary " title="Edit" href="/#!/scenarios/create">
                         Create New Scenerio
                     </a>
     </div>

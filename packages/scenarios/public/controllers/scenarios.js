@@ -71,6 +71,12 @@ angular.module('mean').controller('ScenariosController', ['$scope', '$stateParam
 
                 $scope.scenarios = scenarios;
 
+                $scope.scenarios.forEach(function(s) {
+                    s.user.roles.forEach(function(r) {
+                        console.dir(r);
+                    });
+                });
+
                 $scope.tableParams = new ngTableParams({
                     page: 1,            // show first page
                     count: 10,          // count per page
@@ -93,6 +99,21 @@ angular.module('mean').controller('ScenariosController', ['$scope', '$stateParam
             }, function(scenario) {
                 $scope.scenario = scenario;
             });
+        };
+
+        $scope.toggleCollapse = function(scenario) {
+            scenario.collapsed = !scenario.collapsed;
+        };
+
+        $scope.showDetail = function(scenario) {
+            var url = '#!/scenarios/' + scenario._id;
+            if ($scope.$$phase) {
+                window.open(url, '_blank');
+            }
+            else {
+                $location.path(url);
+                $scope.$apply();
+            }
         };
     }
 ]);

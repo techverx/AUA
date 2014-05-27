@@ -86,7 +86,7 @@ ScenarioSchema.path('name').validate(function(name) {
 ScenarioSchema.statics.load = function(id, cb) {
     this.findOne({
         _id: id
-    }).populate('user', 'name username').exec(cb);
+    }).populate('user', 'name username roles').exec(cb);
 };
 
 mongoose.model('Scenario', ScenarioSchema);

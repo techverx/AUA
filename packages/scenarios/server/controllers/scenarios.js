@@ -88,7 +88,7 @@ exports.show = function(req, res) {
  * List of Scenarios
  */
 exports.all = function(req, res) {
-    Scenario.find().sort('-created').populate('user', 'name username').exec(function(err, scenarios) {
+    Scenario.find().sort('-created').populate('user', 'name username roles').exec(function(err, scenarios) {
         if (err) {
             res.render('error', {
                 status: 500

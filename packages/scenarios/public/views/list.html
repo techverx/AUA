@@ -9,45 +9,46 @@
  <!-- <button class="btn btn-primary pull-right">Reload New Data</button> -->
       <!-- <p data-ng-show="!scenarios || scenarios.length"><strong>Page:</strong> {{tableParams.page()}}</p> -->
       <!--   <div data-ng-show="!scenarios || scenarios.length"><strong>Total Scenerios:</strong> {{tableParams.total()}}</div> -->
-       <div data-ng-show="!scenarios || scenarios.length" class="table-responsive margin-bottom10">
-        <table data-ng-table="tableParams" class="table table-hover table-striped table-bordered"> 
-        <tr data-ng-repeat="scenario in scenarios">
-            <td data-title="' Scenerio Name'" sortable="'name'">
-               <a data-ng-href="#!/scenarios/{{scenario._id}}" target="_blank">{{scenario.name}}</a>
-            </td>
-      <td data-title="'Classification'" sortable="'classification'">
-                {{scenario.classification}}
-            </td>
-              <td data-title="'Status'" sortable="'scenarioStatus'">
-                {{scenario.scenarioStatus}}
-            </td>
-              </td>
-               <td data-title="'Analysis Status'" sortable="'analysisStatus'">
-                {{scenario.analysisStatus}}
-            </td>
-               <td data-title="'User Role'" sortable="'user.role'">
-                {{scenario.user.name}}
-            </td>
-            
-  <td data-title="'Due Date'" sortable="'due'">
-                {{scenario.due | date: 'MMM-dd-yyyy'}}
-            </td>
-
-            <td>
-
-            <!-- if we want to add the user authorization uncomment -->
-                <!-- <span data-ng-if="hasAuthorization(scenario)"> -->
-
-                <span>
-                 <a class="btn" title="Edit" href="/#!/scenarios/{{scenario._id}}/edit">
-                        <i class="glyphicon glyphicon-edit"></i>
-                    </a>
-                    <a class="btn" title="Delete" data-ng-click="remove(scenario);">
-                        <i class="glyphicon glyphicon-trash"></i>
-                    </a>
-                </span>
-            </td>
-        </tr>
+        <div data-ng-show="!scenarios || scenarios.length" class="table-responsive margin-bottom10">
+            <table data-ng-table="tableParams" class="table table-hover table-striped table-bordered"> 
+                <tbody data-ng-repeat="scenario in scenarios">
+                    <tr ng-click="toggleCollapse(scenario);" ng-dblclick="showDetail(scenario);">
+                        <td  data-title="' Scenerio Name'" sortable="'name'">
+                            <a data-ng-href="#!/scenarios/{{scenario._id}}" target="_blank">{{scenario.name}}</a>
+                        </td>
+                        <td data-title="'Classification'" sortable="'classification'">
+                            {{scenario.classification}}
+                        </td>
+                        <td data-title="'Status'" sortable="'scenarioStatus'">
+                            {{scenario.scenarioStatus}}
+                        </td>
+                        <td data-title="'Analysis Status'" sortable="'analysisStatus'">
+                            {{scenario.analysisStatus}}
+                        </td>
+                        <td data-title="'User Role'" sortable="'user.role'">
+                            {{scenario.user.roles[0]}}
+                        </td>
+                        <td data-title="'Due Date'" sortable="'due'">
+                            {{scenario.due | date: 'MMM-dd-yyyy'}}
+                        </td>
+                        <td>
+                            <span>
+                                <a class="btn" title="Edit" href="/#!/scenarios/{{scenario._id}}/edit">
+                                    <i class="glyphicon glyphicon-edit"></i>
+                                </a>
+                                <a class="btn" title="Delete" data-ng-click="remove(scenario);">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0px" colspan="7">
+                            <div data-ng-include data-src="'scenarios/views/_detail.html'" collapse="!scenario.collapsed">
+                            </div>
+                        </td>
+                    </tr>
+        </tbody>
         
     </table> 
       <div class="pull-right" data-ng-show="!scenarios || scenarios.length"><strong>{{tableParams.total()}} Records</strong> </div>

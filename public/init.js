@@ -24,13 +24,9 @@ modules = modules.concat(packageModules);
 var mean = angular.module('mean', modules);
 
 mean.factory('Utils', function() {
-
 	return {
-
 		doSort: function(modelArray, params) {
-
 			modelArray.sort(function(a, b) {
-
                 var key = Object.keys(params.$params.sorting)[0];
                 var order = params.$params.sorting[key];
 

@@ -12,23 +12,29 @@ angular.module('mean').controller('ScenariosController', ['$scope', '$stateParam
         $scope.create = function() {
             var scenario = new Scenarios({
                 name: this.name,
-                description: this.description,
-                classification: this.cllassification,
+                nipf: this.nipf,
+                classification: this.classification,
                 scenarioStatus: this.scenarioStatus,
                 analysisStatus: this.analysisStatus,
-                due: this.due
+                due: this.due,
+                taskNumber: this.taskNumber,
+                actor: this.actor,
+                discoverable: this.discoverable
             });
             scenario.$save(function(response) {
                 // $location.path('scenarios' + response._id);
                 $location.path('scenarios');
             });
 
-            this.name = '';
-            this.description = '';
-            this.classification = '';
-            this.scenarioStatus= '';
-            this.analysisStatus= '';
-            this.due = '';
+          this.name = '';
+          this.nipf = '';
+          this.classification = '';
+          this.scenarioStatus = '';
+          this.analysisStatus = '';
+          this.due = '';
+          this.taskNumber = '';
+          this.actor = '';
+          this.discoverable = '';
         };
 
         $scope.remove = function(scenario) {

@@ -1,25 +1,66 @@
-<h3>Create New Scenerios</h3>
+<h3>Scenario Summary</h3>
 <section data-ng-controller="ScenariosController">
     <form class="form-horizontal col-md-6" role="form" data-ng-submit="create()">
-        <div class="form-group">
-            <label mean-token="'create-name'" class="col-md-3 control-label">Name</label>
+     <div class="form-group">
+            <label mean-token="'create-classification'" class="col-md-3 control-label">Scenerio Classification</label>
             <div class="col-md-9">
-                <input type="text" class="form-control" data-ng-model="name" id="name" placeholder="Name" required>
+                <input type="text" class="form-control" data-ng-model="classification" id="classification" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label mean-token="'create-name'" class="col-md-3 control-label">Scenerio Name</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" data-ng-model="name" id="name" required>
+            </div>
+        </div>
+          <div class="form-group">
+            <label mean-token="'create-nipf'" class="col-md-3 control-label">NIPF</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" data-ng-model="nipf" id="nipf" required>
+            </div>
+        </div>
+            <div class="form-group">
+            <label mean-token="'create-taskNumber'" class="col-md-3 control-label">Task Number</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" data-ng-model="taskNumber" id="taskNumber" required>
+            </div>
+        </div>
+         
+            <div class="form-group">
+            <label mean-token="'create-actor'" class="col-md-3 control-label">Actor/Perspective</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" data-ng-model="actor" id="actor" required>
+            </div>
+        </div>
+           <div class="form-group">
+            <label mean-token="'create-name'" class="col-md-3 control-label">Due Date</label>
+            <div class="col-md-9">
+                <datepicker data-ng-model="due" id="due" required></datepicker>
+              <!--   <input type="date" class="form-control" data-ng-model="due" id="due" placeholder="Due Date" required> -->
             </div>
         </div>
         <div class="form-group">
             <label mean-token="'create-content'" for="description" class="col-md-3 control-label">Description</label>
             <div class="col-md-9">
-                <textarea data-ng-model="description" id="description" cols="30" rows="10" placeholder="Description" class="form-control" required></textarea>
+                <textarea data-ng-model="description" id="description" cols="30" rows="10"  class="form-control" required></textarea>
             </div>
         </div>
-         <div class="form-group">
-            <label mean-token="'create-classification'" class="col-md-3 control-label">Classification</label>
+            <div class="form-group">
+            <label mean-token="'create-discoverable'" for="discoverable" class="col-md-3 control-label">
+Analysis will be discoverable by all Users</label>
             <div class="col-md-9">
-                <input type="text" class="form-control" data-ng-model="classification" id="classification" placeholder="Classification" required>
+             <label>
+                <input type="radio" data-ng-model="discoverable" value="Yes" id="discoverable" selected="selected"  ></input>
+                Yes</label>
+                             <label>
+
+                 <input type="radio" data-ng-model="discoverable" value="No" id="discoverable"  ></input>
+No (Only Assigned Analysts can discover Scenario through Search)
+                 </label>
             </div>
         </div>
-         <div class="form-group">
+        
+    <!--      <div class="form-group">
             <label mean-token="'create-scenarioStatus'" class="col-md-3 control-label">Status</label>
             <div class="col-md-9">
                 <input type="text" class="form-control" data-ng-model="scenarioStatus" id="scenarioStatus" placeholder="Status" required>
@@ -43,14 +84,8 @@
                     </option>
                 </select>
             </div>
-        </div>
-        <div class="form-group">
-            <label mean-token="'create-name'" class="col-md-3 control-label">Due Date</label>
-            <div class="col-md-9">
-                <datepicker data-ng-model="due" id="due" placeholder="Due Date" required></datepicker>
-              <!--   <input type="date" class="form-control" data-ng-model="due" id="due" placeholder="Due Date" required> -->
-            </div>
-        </div>
+        </div> -->
+     
         <div class="form-group">
             <div class="col-md-offset-3 col-md-9">
                 <button type="submit" class="btn btn-success">Create</button>

@@ -1,29 +1,34 @@
-<h3>All Scenerios</h3>
+<h3 class="pull-left">My Work</h3>
+     <a class="btn btn-primary pull-right margin-top15" title="Edit" href="/#!/scenarios/create">
+                        Create New Scenerio
+                    </a>
+                    <div class="clearfix" ></div>
+<hr />
 <section data-ng-controller="ScenariosController" data-ng-init="find()">
 
  <!-- <button class="btn btn-primary pull-right">Reload New Data</button> -->
       <!-- <p data-ng-show="!scenarios || scenarios.length"><strong>Page:</strong> {{tableParams.page()}}</p> -->
-        <div data-ng-show="!scenarios || scenarios.length"><strong>Total Scenerios:</strong> {{tableParams.total()}}</div>
+      <!--   <div data-ng-show="!scenarios || scenarios.length"><strong>Total Scenerios:</strong> {{tableParams.total()}}</div> -->
        <div data-ng-show="!scenarios || scenarios.length" class="table-responsive margin-bottom10">
         <table data-ng-table="tableParams" class="table table-hover table-striped table-bordered"> 
         <tr data-ng-repeat="scenario in scenarios">
-            <td data-title="'Name'" sortable="'name'">
-               <a data-ng-href="#!/scenarios/{{scenario._id}}">{{scenario.name}}</a>
+            <td data-title="' Scenerio Name'" sortable="'name'">
+               <a data-ng-href="#!/scenarios/{{scenario._id}}" target="_blank">{{scenario.name}}</a>
             </td>
-
-            <td data-title="'Description'" sortable="'description'">
-                {{scenario.description}}
-            </td>
-               <td data-title="'Classification'" sortable="'classification'">
+      <td data-title="'Classification'" sortable="'classification'">
                 {{scenario.classification}}
             </td>
-
-            <td data-title="'Status'" sortable="'scenarioStatus'">
+              <td data-title="'Status'" sortable="'scenarioStatus'">
                 {{scenario.scenarioStatus}}
             </td>
+              </td>
                <td data-title="'Analysis Status'" sortable="'analysisStatus'">
                 {{scenario.analysisStatus}}
             </td>
+               <td data-title="'User Role'" sortable="'user.role'">
+                {{scenario.user.name}}
+            </td>
+            
   <td data-title="'Due Date'" sortable="'due'">
                 {{scenario.due | date: 'MMM-dd-yyyy'}}
             </td>
@@ -45,9 +50,8 @@
         </tr>
         
     </table> 
-     <a class="btn btn-primary " title="Edit" href="/#!/scenarios/create">
-                        Create New Scenerio
-                    </a>
+      <div class="pull-right" data-ng-show="!scenarios || scenarios.length"><strong>{{tableParams.total()}} Records</strong> </div>
+
     </div>
 
     <h1 data-ng-hide="!scenarios || scenarios.length">No scenarios yet. <br> Why don't you <a href="/#!/scenarios/create">Create One</a>?</h1>

@@ -25,29 +25,52 @@ var ScenarioSchema = new Schema({
         default: '',
         trim: true
     },
+       NIPF: {
+        type: String,
+        default: '',
+        trim: true
+    },
     classification: {
         type: String,
-        default: 'Unclassified',
+        default: '',
+        trim: true
+    },
+     taskNumber: {
+        type: String,
+        default: '',
+        trim: true
+    },
+     pir: {
+        type: String,
+        default: '',
+        trim: true
+    },
+      actor: {
+        type: String,
+        default: '',
         trim: true
     },
     scenarioStatus: {
         type: String,
-        default: 'Draft',
+        default: '',
         trim: true
     },
     analysisStatus: {
         type: String,
-        default: '--',
+        default: '',
         trim: true
     },
     due: {
-        type: String,
-        default: '--',
-        trim: true
+       type: Date,
+        default: Date.now
     },
      user: {
         type: Schema.ObjectId,
         ref: 'User'
+    },
+    discoverable:{
+        type: String,
+        default: true,
     }
 });
 /**

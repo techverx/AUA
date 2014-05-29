@@ -103,6 +103,14 @@ angular.module('mean').controller('ScenariosController', ['$scope', '$stateParam
 
         $scope.toggleCollapse = function(scenario) {
             scenario.collapsed = !scenario.collapsed;
+
+        };
+
+        $scope.changeClass = function(scenario){
+          if (scenario.class === 'active')
+            scenario.class = 'deactive';
+          else
+            scenario.class = 'active';
         };
 
         $scope.showDetail = function(scenario) {

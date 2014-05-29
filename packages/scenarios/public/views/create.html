@@ -1,6 +1,27 @@
-<h3>Scenario Summary</h3>
+    <div class="navbar header" >
+        <h4>Scenario Name</h4>
+    </div>
+    <a class="btn btn-primary pull-right margin-top15" title="Edit" href="/#!/scenarios">
+                        Close Scenerio
+                    </a>
+                         <div class="clearfix" ></div>
+<hr />
 <section data-ng-controller="ScenariosController">
-    <form class="form-horizontal col-md-6" role="form" data-ng-submit="create()">
+
+ <tabset justified="true">
+    <tab heading="Scenario Details">
+<!--   <div class="navbar tab-header-links" >      
+    <h3>Scenario Details</h3>
+  </div> -->
+  <div class="navbar tab-header" >
+        <h3 class="pull-left">Scenario Details</h3>
+        <a title="Help" class="glyphicon glyphicon-question-sign pull-right line-height">Help</a>
+  </div>
+<h3> Scenario Summary</h3> 
+    <a class="glyphicon glyphicon-plus margin-bottom10 pull-right" title="Edit" href="/#!/comments/create">
+                         Add Comment
+                    </a>
+    <form class="form-horizontal" role="form" data-ng-submit="create()">
      <div class="form-group">
             <label mean-token="'create-classification'" class="col-md-3 control-label">Scenerio Classification</label>
             <div class="col-md-9">
@@ -42,7 +63,7 @@
         <div class="form-group">
             <label mean-token="'create-content'" for="description" class="col-md-3 control-label">Description</label>
             <div class="col-md-9">
-                <textarea data-ng-model="description" id="description" cols="30" rows="10"  class="form-control" required></textarea>
+                <textarea data-ng-model="description" id="description" cols="30" rows="10"  class="form-control" placeholder="Type full paragraph describing scenario problem and special instructions" required></textarea>
             </div>
         </div>
             <div class="form-group">
@@ -96,4 +117,9 @@ No (Only Assigned Analysts can discover Scenario through Search)
 
         </div>
     </form>
+         </tab>
+    <tab heading="Collaboration">
+        <div data-ng-include data-src="'scenarios/views/partials/_collaboration.html'" collapse="!scenario.collapsed"></div>
+    </tab>
+    <tab heading="Scenario Preview & Validate"></tab>
 </section>

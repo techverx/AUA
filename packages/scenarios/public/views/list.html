@@ -1,18 +1,18 @@
+
+<section data-ng-controller="ScenariosController" data-ng-init="find()">
 <h3 class="pull-left">My Work</h3>
      <a class="btn btn-primary pull-right margin-top15" title="Edit" href="/#!/scenarios/create">
                         Create New Scenerio
                     </a>
                     <div class="clearfix" ></div>
 <hr />
-<section data-ng-controller="ScenariosController" data-ng-init="find()">
-
  <!-- <button class="btn btn-primary pull-right">Reload New Data</button> -->
       <!-- <p data-ng-show="!scenarios || scenarios.length"><strong>Page:</strong> {{tableParams.page()}}</p> -->
       <!--   <div data-ng-show="!scenarios || scenarios.length"><strong>Total Scenerios:</strong> {{tableParams.total()}}</div> -->
         <div data-ng-show="!scenarios || scenarios.length" class="table-responsive margin-bottom10">
             <table data-ng-table="tableParams" class="table table-hover table-striped table-bordered"> 
                 <tbody data-ng-repeat="scenario in scenarios">
-                    <tr ng-click="toggleCollapse(scenario);" ng-dblclick="showDetail(scenario);">
+                    <tr  ng-click="toggleCollapse(scenario);changeClass(scenario);" ng-dblclick="showDetail(scenario);">
                         <td  data-title="' Scenerio Name'" sortable="'name'">
                             <a data-ng-href="#!/scenarios/{{scenario._id}}" target="_blank">{{scenario.name}}</a>
                         </td>
@@ -44,7 +44,7 @@
                     </tr>
                     <tr>
                         <td style="padding:0px" colspan="7">
-                            <div data-ng-include data-src="'scenarios/views/_detail.html'" collapse="!scenario.collapsed">
+                            <div data-ng-include data-src="'scenarios/views/partials/_detail.html'" collapse="!scenario.collapsed">
                             </div>
                         </td>
                     </tr>
@@ -56,5 +56,8 @@
     </div>
 
     <h1 data-ng-hide="!scenarios || scenarios.length">No scenarios yet. <br> Why don't you <a href="/#!/scenarios/create">Create One</a>?</h1>
+   
+  </tabset>
+
 </section>
 

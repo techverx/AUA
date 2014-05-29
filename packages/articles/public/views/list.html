@@ -1,4 +1,7 @@
 <section data-ng-controller="ArticlesController" data-ng-init="find()">
+ <tabset justified="true">
+    <tab heading="Scenario Details">
+
     <ul class="articles unstyled">
         <li data-ng-repeat="article in articles">
             <span>{{article.created | date:'medium'}}</span> /
@@ -18,4 +21,9 @@
         </li>
     </ul>
     <h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>
+    </tab>
+    <tab heading="Collaboration">Collaboration</tab>
+    <tab heading="Scenario Preview & Validate"></tab>
+  </tabset>
+
 </section>

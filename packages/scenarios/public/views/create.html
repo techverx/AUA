@@ -1,125 +1,34 @@
     <div class="navbar header" >
         <h4>Scenario Name</h4>
     </div>
-    <a class="btn btn-primary pull-right margin-top15" title="Edit" href="/#!/scenarios">
-                        Close Scenerio
-                    </a>
-                         <div class="clearfix" ></div>
+    <a class="btn btn-primary pull-right margin-top15" title="Edit" href="/#!/scenarios">Close Scenerio</a>
+    <div class="clearfix" ></div>
 <hr />
 <section data-ng-controller="ScenariosController">
-
  <tabset justified="true">
     <tab heading="Scenario Details">
-<!--   <div class="navbar tab-header-links" >      
-    <h3>Scenario Details</h3>
-  </div> -->
-  <div class="navbar tab-header" >
-        <h3 class="pull-left">Scenario Details</h3>
-        <a title="Help" class="glyphicon glyphicon-question-sign pull-right line-height">Help</a>
-  </div>
+        <div class="navbar tab-header" >
+            <h3 class="pull-left">Scenario Details</h3>
+            <a title="Help" class="glyphicon glyphicon-question-sign pull-right line-height">Help</a>
+        </div>
 <h3> Scenario Summary</h3> 
-    <a class="glyphicon glyphicon-plus margin-bottom10 pull-right" title="Edit" href="/#!/comments/create">
-                         Add Comment
-                    </a>
-    <form class="form-horizontal" role="form" data-ng-submit="create()">
-     <div class="form-group">
-            <label mean-token="'create-classification'" class="col-md-3 control-label">Scenerio Classification</label>
-            <div class="col-md-9">
-                <input type="text" class="form-control" data-ng-model="classification" id="classification" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label mean-token="'create-name'" class="col-md-3 control-label">Scenerio Name</label>
-            <div class="col-md-9">
-                <input type="text" class="form-control" data-ng-model="name" id="name" required>
-            </div>
-        </div>
-          <div class="form-group">
-            <label mean-token="'create-nipf'" class="col-md-3 control-label">NIPF</label>
-            <div class="col-md-9">
-                <input type="text" class="form-control" data-ng-model="nipf" id="nipf" required>
-            </div>
-        </div>
-            <div class="form-group">
-            <label mean-token="'create-taskNumber'" class="col-md-3 control-label">Task Number</label>
-            <div class="col-md-9">
-                <input type="text" class="form-control" data-ng-model="taskNumber" id="taskNumber" required>
-            </div>
-        </div>
-         
-            <div class="form-group">
-            <label mean-token="'create-actor'" class="col-md-3 control-label">Actor/Perspective</label>
-            <div class="col-md-9">
-                <input type="text" class="form-control" data-ng-model="actor" id="actor" required>
-            </div>
-        </div>
-           <div class="form-group">
-            <label mean-token="'create-name'" class="col-md-3 control-label">Due Date</label>
-            <div class="col-md-9">
-                <datepicker data-ng-model="due" id="due" required></datepicker>
-              <!--   <input type="date" class="form-control" data-ng-model="due" id="due" placeholder="Due Date" required> -->
-            </div>
-        </div>
-        <div class="form-group">
-            <label mean-token="'create-content'" for="description" class="col-md-3 control-label">Description</label>
-            <div class="col-md-9">
-                <textarea data-ng-model="description" id="description" cols="30" rows="10"  class="form-control" placeholder="Type full paragraph describing scenario problem and special instructions" required></textarea>
-            </div>
-        </div>
-            <div class="form-group">
-            <label mean-token="'create-discoverable'" for="discoverable" class="col-md-3 control-label">
-Analysis will be discoverable by all Users</label>
-            <div class="col-md-9">
-             <label>
-                <input type="radio" data-ng-model="discoverable" value="Yes" id="discoverable" selected="selected"  ></input>
-                Yes</label>
-                             <label>
-
-                 <input type="radio" data-ng-model="discoverable" value="No" id="discoverable"  ></input>
-No (Only Assigned Analysts can discover Scenario through Search)
-                 </label>
-            </div>
-        </div>
-        
-    <!--      <div class="form-group">
-            <label mean-token="'create-scenarioStatus'" class="col-md-3 control-label">Status</label>
-            <div class="col-md-9">
-                <input type="text" class="form-control" data-ng-model="scenarioStatus" id="scenarioStatus" placeholder="Status" required>
-            </div>
-        </div>
-         <div class="form-group">
-            <label mean-token="'create-analysisStatus'" class="col-md-3 control-label">Analysis Status</label>
-            <div class="col-md-9">
-                <select class="form-control" data-ng-model="analysisStatus" id="analysisStatus" required>
-                    <option value="Started">
-                       Started
-                    </option>
-                    <option value="Not Started">
-                       Not Started
-                    </option>
-                    <option value="Under Process">
-                       Under Process
-                    </option>
-                     <option value="Completed">
-                       Completed
-                    </option>
-                </select>
-            </div>
-        </div> -->
-     
+    <a class="glyphicon glyphicon-plus margin-bottom10 pull-right" title="Edit" href="/#!/comments/create">Add Comment</a>
+    <form class="form-horizontal" role="form" data-ng-submit="create()">  
+          <div data-ng-include data-src="'scenarios/views/partials/_form.html'"></div>
         <div class="form-group">
             <div class="col-md-offset-3 col-md-9">
                 <button type="submit" class="btn btn-success">Create</button>
-                 <a class="btn btn-danger" title="Edit" href="/#!/scenarios">
-                        Cancel
-                    </a>
+                 <a class="btn btn-danger" title="Edit" href="/#!/scenarios">Cancel</a>
             </div>
-
         </div>
     </form>
+            <div data-ng-include data-src="'scenarios/views/partials/_courses.html'" ></div>
+            <div data-ng-include data-src="'scenarios/views/partials/_outcomes.html'" ></div>
          </tab>
     <tab heading="Collaboration">
-        <div data-ng-include data-src="'scenarios/views/partials/_collaboration.html'" collapse="!scenario.collapsed"></div>
+        <div data-ng-include data-src="'scenarios/views/partials/_collaboration.html'" ></div>
     </tab>
-    <tab heading="Scenario Preview & Validate"></tab>
+    <tab heading="Scenario Preview & Validate">
+          <div data-ng-include data-src="'scenarios/views/partials/_preview.html'"></div>
+    </tab>
 </section>

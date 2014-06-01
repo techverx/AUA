@@ -11,20 +11,12 @@
             <h3 class="pull-left">Scenario Details</h3>
             <a title="Help" class="glyphicon glyphicon-question-sign pull-right line-height">Help</a>
         </div>
-<h3> Scenario Summary</h3> 
-    <a class="glyphicon glyphicon-plus margin-bottom10 pull-right" title="Edit" href="/#!/comments/create">Add Comment</a>
-    <form class="form-horizontal" role="form" data-ng-submit="create()">  
-          <div data-ng-include data-src="'scenarios/views/partials/_form.html'"></div>
-        <div class="form-group">
-            <div class="col-md-offset-3 col-md-9">
-                <button type="submit" class="btn btn-success">Create</button>
-                 <a class="btn btn-danger" title="Edit" href="/#!/scenarios">Cancel</a>
-            </div>
-        </div>
-    </form>
-            <div data-ng-include data-src="'scenarios/views/partials/_courses.html'" ></div>
-            <div data-ng-include data-src="'scenarios/views/partials/_outcomes.html'" ></div>
-         </tab>
+            <h3> Scenario Summary</h3> 
+            <a class="glyphicon glyphicon-plus margin-bottom10 pull-right" title="Edit" href="/#!/comments/create">Add Comment</a>
+        <div data-ng-include data-src="'scenarios/views/partials/_form.html'"></div>         
+        <div data-ng-include data-src="'scenarios/views/partials/_courses.html'" ></div>
+        <div data-ng-include data-src="'scenarios/views/partials/_outcomes.html'" ></div>
+     </tab>
     <tab heading="Collaboration">
         <div data-ng-include data-src="'scenarios/views/partials/_collaboration.html'" ></div>
     </tab>

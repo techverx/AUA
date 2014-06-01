@@ -1,0 +1,29 @@
+<section data-ng-controller="ArticlesController" data-ng-init="find()">
+ <tabset justified="true">
+    <tab heading="Scenario Details">
+
+    <ul class="comments unstyled">
+        <li data-ng-repeat="comment in comments">
+            <span>{{comment.created | date:'medium'}}</span> /
+            <span>{{comment.user.name}}</span>
+            <h2>
+                <a data-ng-href="#!/comments/{{comment._id}}">{{comment.title}}</a>
+                <span data-ng-if="hasAuthorization(comment)">
+                    <a class="btn" href="/#!/comments/{{comment._id}}/edit">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn" data-ng-click="remove(comment);">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </span>
+            </h2>
+            <div>{{comment.content}}</div>
+        </li>
+    </ul>
+    <h1 data-ng-hide="!comments || comments.length">No comments yet. <br> Why don't you <a href="/#!/comments/create">Create One</a>?</h1>
+    </tab>
+    <tab heading="Collaboration">Collaboration</tab>
+    <tab heading="Scenario Preview & Validate"></tab>
+  </tabset>
+
+</section>
